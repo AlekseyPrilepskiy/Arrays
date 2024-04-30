@@ -1,0 +1,46 @@
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Random number = new Random();
+
+        int numbersLength = 10;
+        int minimalRandomNumber = 0;
+        int maximalRandomNumber = 100;
+        int temporaryNumber = 0;
+
+        int[] numbers = new int[numbersLength];
+
+        for (int i = 0; i < numbersLength; i++)
+        {
+            numbers[i] = number.Next(minimalRandomNumber, maximalRandomNumber);
+        }
+
+        Console.WriteLine("Изначальный массив:");
+
+        for (int i = 0; i < numbersLength; i++)
+        {
+            Console.Write($"{numbers[i]} ");
+        }
+
+        for (int i = 0; i < numbersLength; i++)
+        {
+            for (int j = 0; j < numbersLength - 1; j++)
+            {
+                if (numbers[j] > numbers[j + 1])
+                {
+                    temporaryNumber = numbers[j + 1];
+                    numbers[j + 1] = numbers[j];
+                    numbers[j] = temporaryNumber;
+                }
+            }
+        }
+
+        Console.WriteLine("\n\nОтсортированный массив:");
+
+        for (int i = 0; i < numbersLength; i++)
+        {
+            Console.Write($"{numbers[i]} ");
+        }
+    }
+}
