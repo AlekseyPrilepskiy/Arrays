@@ -3,10 +3,11 @@ internal class Program
     private static void Main(string[] args)
     {
         string message = "A string that will be an array of words.";
+        string splitter = " ";
 
         Console.WriteLine($"Сообщение: {message}\n");
 
-        string[] wordsInMessage = message.Split(' ');
+        string[] wordsInMessage = message.Split(splitter);
 
         Console.WriteLine($"Массив:");
 
