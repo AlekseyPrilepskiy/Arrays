@@ -1,0 +1,42 @@
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.WriteLine("Введите строку из символов '(' и ')'. ");
+        string symbols = Console.ReadLine();
+
+        int counter = 0;
+        int maximalDepthSymbols = 0;
+
+        for (int i = 0; i < symbols.Length; i++)
+        {
+            if (symbols[i] == '(')
+            {
+                counter++;
+
+                if (counter > maximalDepthSymbols)
+                {
+                    maximalDepthSymbols = counter;
+                }
+            }
+            else if (symbols[i] == ')')
+            {
+                counter--;
+            }
+
+            if (counter < 0)
+            {
+                break;
+            }
+        }
+
+        if (counter == 0)
+        {
+            Console.WriteLine($"Строка правильная.\nМаксимальная глубина символов: {maximalDepthSymbols}");
+        }
+        else
+        {
+            Console.WriteLine("Строка не правильная!");
+        }
+    }
+}
