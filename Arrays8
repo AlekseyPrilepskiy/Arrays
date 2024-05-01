@@ -1,0 +1,27 @@
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        int[] numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        int temporaryNumber = 0;
+
+        Console.Write("Введите число, на которое элементы массива сдвинутся влево: ");
+        int counterStepsOfShift = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 0; i < counterStepsOfShift; i++)
+        {
+            for (int j = 1; j < numbers.Length; j++)
+            {
+                temporaryNumber = numbers[j];
+                numbers[j] = numbers[j - 1];
+                numbers[j - 1] = temporaryNumber;
+            }
+        }
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.Write($"{numbers[i]} ");
+        }
+    }
+}
