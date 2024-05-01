@@ -9,7 +9,9 @@ internal class Program
         Console.Write("Введите число, на которое элементы массива сдвинутся влево: ");
         int counterStepsOfShift = Convert.ToInt32(Console.ReadLine());
 
-        if ((counterStepsOfShift % numbers.Length) != 0)
+        counterStepsOfShift = counterStepsOfShift % numbers.Length;
+
+        if (counterStepsOfShift != 0)
         {
             for (int i = 0; i < counterStepsOfShift; i++)
             {
