@@ -2,37 +2,40 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Введите строку из символов '(' и ')'. ");
+        char openBracket = '(';
+        char closeBracket = ')';
+
+        Console.WriteLine($"Введите строку из символов '{openBracket}' и '{closeBracket}'. ");
         string symbols = Console.ReadLine();
 
-        int counter = 0;
-        int maximalDepthSymbols = 0;
+        int counterOfCurrentDepth = 0;
+        int maximalDepthBrackets = 0;
 
         for (int i = 0; i < symbols.Length; i++)
         {
-            if (symbols[i] == '(')
+            if (symbols[i] == openBracket)
             {
-                counter++;
+                counterOfCurrentDepth++;
 
-                if (counter > maximalDepthSymbols)
+                if (counterOfCurrentDepth > maximalDepthBrackets)
                 {
-                    maximalDepthSymbols = counter;
+                    maximalDepthBrackets = counterOfCurrentDepth;
                 }
             }
-            else if (symbols[i] == ')')
+            else if (symbols[i] == closeBracket)
             {
-                counter--;
+                counterOfCurrentDepth--;
             }
 
-            if (counter < 0)
+            if (counterOfCurrentDepth < 0)
             {
                 break;
             }
         }
 
-        if (counter == 0)
+        if (counterOfCurrentDepth == 0)
         {
-            Console.WriteLine($"Строка правильная.\nМаксимальная глубина символов: {maximalDepthSymbols}");
+            Console.WriteLine($"Строка правильная.\nМаксимальная глубина символов: {maximalDepthBrackets}");
         }
         else
         {
