@@ -9,13 +9,16 @@ internal class Program
         Console.Write("Введите число, на которое элементы массива сдвинутся влево: ");
         int counterStepsOfShift = Convert.ToInt32(Console.ReadLine());
 
-        for (int i = 0; i < counterStepsOfShift; i++)
+        if ((counterStepsOfShift % numbers.Length) != 0)
         {
-            for (int j = 1; j < numbers.Length; j++)
+            for (int i = 0; i < counterStepsOfShift; i++)
             {
-                temporaryNumber = numbers[j];
-                numbers[j] = numbers[j - 1];
-                numbers[j - 1] = temporaryNumber;
+                for (int j = 1; j < numbers.Length; j++)
+                {
+                    temporaryNumber = numbers[j];
+                    numbers[j] = numbers[j - 1];
+                    numbers[j - 1] = temporaryNumber;
+                }
             }
         }
 
